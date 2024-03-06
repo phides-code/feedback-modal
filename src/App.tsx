@@ -4,6 +4,7 @@ import Card from './Card';
 
 const App = () => {
     const [isMobile, setisMobile] = useState<boolean>(false);
+    const [showModal, setShowModal] = useState<boolean>(true);
 
     useEffect(() => {
         const detectMobile = () => {
@@ -27,7 +28,13 @@ const App = () => {
 
     return (
         <Wrapper>
-            <Card isMobile={isMobile} />
+            {showModal && (
+                <Card
+                    isMobile={isMobile}
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                />
+            )}
         </Wrapper>
     );
 };
